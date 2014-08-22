@@ -293,12 +293,15 @@ class POVMS_MessageReceiver
 		{
 			public:
 				virtual void Call(POVMS_Message&, POVMS_Message&, int) = 0;
+                virtual ~HandlerOO(){}
+
 		};
 		class Handler
 		{
 			public:
 				virtual void Call(POVMSObjectPtr, POVMSObjectPtr, int) = 0;
-		};
+                virtual ~Handler(){}
+        };
 	protected:
 		template<class T> class MemberHandlerOO : public HandlerOO
 		{
