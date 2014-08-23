@@ -479,7 +479,7 @@ size_t ProcessOptions::ConvertUTF8ToUCS2(const char *text_array, UCS2 *char_arra
 
 	for(i = 0, k = 0; i < text_array_size; k++, i++)
 	{
-		seqlen = gUTF8SequenceArray[text_array[i]];
+        seqlen = gUTF8SequenceArray[(unsigned char)text_array[i]];
 		chr = 0;
 		for(j = seqlen; j > 0; j--)
 		{
