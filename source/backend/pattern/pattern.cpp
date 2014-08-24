@@ -5904,7 +5904,7 @@ inline float intp3_2(float t, float fa, float fb, float fc, float fd)
     return ((e * t + f) * t + b) * t + fb;
 }
 
-#define zmax(i,imax) (((i)<0)?(imax-1):((i) % (imax)))
+#define zmax(i,imax) (((ptrdiff_t)(i)<0)?(imax-1):((i) % (imax)))
 
 DBL DensityFilePattern::EvaluateRaw(const Vector3d& EPoint, const Intersection *pIsection, const Ray *pRay, TraceThreadData *pThread) const
 {
