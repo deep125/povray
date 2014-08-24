@@ -235,7 +235,7 @@ struct POVMSContextData
 * Local variables
 ******************************************************************************/
 
-struct
+static struct
 {
 	int int_write[4],   int_read[4];
 	int long_write[8],  long_read[8];
