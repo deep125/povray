@@ -1081,7 +1081,7 @@ struct ProcessRenderOptions::Output_FileType_Table FileTypeTable[] =
 	//      such as height fields.
 
 	// end-of-list marker
-	{ '\0', 0, 0, false }
+    { '\0', 0, 0, false ,false }
 };
 
 /* Supported special gamma types */
