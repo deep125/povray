@@ -536,10 +536,7 @@ void FNCode::SetFlag(unsigned int flag, char *str)
             POV_FREE(asm_output);
         asm_output = POV_STRDUP(str);
     }
-#else
-    // silence compiler warnings
-    flag = 0;
-    str = NULL;
+
 #endif
 }
 
