@@ -208,14 +208,14 @@ Image *Read (IStream *file, const Image::ReadOptions& options)
 								{
 									unsigned char c = read_byte(file);
 
-									if ((c >= 0) && (c <= 127))
+                                    if (c <= 127)
 									{
 										for (int k = 0; k <= c; k++)
 											row_bytes[plane * rowlen + nBytes++] = (unsigned char)read_byte(file);
 									}
 									else
 									{
-										if ((c >= 129) && (c <= 255))
+                                        if (c >= 129)
 										{
 											count = 257 - c;
 											c = read_byte(file);

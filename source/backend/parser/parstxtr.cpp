@@ -5317,7 +5317,7 @@ void Parser::Parse_PatternFunction(TPATTERN *New)
             }
             dynamic_cast<FractalPattern*>(New->pattern.get())->exteriorType = (int)Parse_Float();
             // TODO VERIFY - this differs from regular pattern parsing (max exterior type), is that ok?
-            if((dynamic_cast<FractalPattern*>(New->pattern.get())->exteriorType < 0) || (dynamic_cast<FractalPattern*>(New->pattern.get())->exteriorType > 6))
+            if(dynamic_cast<FractalPattern*>(New->pattern.get())->exteriorType > 6)
                 Error("Invalid fractal pattern exterior type. Valid types are 0 to 6.");
             Parse_Comma();
             dynamic_cast<FractalPattern*>(New->pattern.get())->exteriorFactor = Parse_Float();
@@ -5334,7 +5334,7 @@ void Parser::Parse_PatternFunction(TPATTERN *New)
                 Only_In("exterior", "mandel, julia or magnet");
             }
             dynamic_cast<FractalPattern*>(New->pattern.get())->interiorType = (int)Parse_Float();
-            if((dynamic_cast<FractalPattern*>(New->pattern.get())->interiorType < 0) || (dynamic_cast<FractalPattern*>(New->pattern.get())->interiorType > 6))
+            if(dynamic_cast<FractalPattern*>(New->pattern.get())->interiorType > 6)
                 Error("Invalid fractal pattern interior type. Valid types are 0 to 6.");
             Parse_Comma();
             dynamic_cast<FractalPattern*>(New->pattern.get())->interiorFactor = Parse_Float();

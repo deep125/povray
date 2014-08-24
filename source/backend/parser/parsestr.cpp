@@ -1155,7 +1155,7 @@ void Parser::UCS2_strupr(UCS2 *str)
 
     while(true)
     {
-        if (((int) *str < 0) || (*str > 127))
+        if (*str > 127)
             err = true;
         else if(*str == 0)
             break;
@@ -1193,7 +1193,7 @@ void Parser::UCS2_strlwr(UCS2 *str)
 
     while(true)
     {
-        if (((int) *str < 0) || (*str > 127))
+        if (*str > 127)
             err = true;
         else if(*str == 0)
             break;

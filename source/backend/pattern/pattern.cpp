@@ -5943,7 +5943,7 @@ DBL DensityFilePattern::EvaluateRaw(const Vector3d& EPoint, const Intersection *
                     y = (size_t)(Ey * (DBL)Data->Sy);
                     z = (size_t)(Ez * (DBL)Data->Sz);
 
-                    if ((x < 0) || (x >= Data->Sx) || (y < 0) || (y >= Data->Sy) || (z < 0) || (z >= Data->Sz))
+                    if ( (x >= Data->Sx) || (y >= Data->Sy) || (z >= Data->Sz))
                         density = 0.0;
                     else
                     {
