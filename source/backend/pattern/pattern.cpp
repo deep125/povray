@@ -5257,7 +5257,8 @@ DBL AgatePattern::EvaluateRaw(const Vector3d& EPoint, const Intersection *pIsect
     }
     else
     {
-        noise = min(1.0, noise);
+        if(noise<1.0)
+            noise = 1.0;
         noise = pow(noise, 0.77);
     }
 
