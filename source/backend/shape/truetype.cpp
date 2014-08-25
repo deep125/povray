@@ -831,19 +831,25 @@ FontFileInfo *ProcessFontFile(const char *fontfilename, const int font_id, Parse
 	}
 
 	ProcessHeadTable(ffile, head_table_offset);  /* Need indexToLocFormat */
+    /* TODO
 	if ((ffile->indexToLocFormat != 0 && ffile->indexToLocFormat != 1) ||
 	    (ffile->unitsPerEm < 16 || ffile->unitsPerEm > 16384))
 ;// TODO MESSAGE    Error("Invalid TrueType font data in %s", ffile->filename);
+*/
 
 	ProcessMaxpTable(ffile, maxp_table_offset);  /* Need numGlyphs */
+    /* TODO
 	if (ffile->numGlyphs <= 0)
 ;// TODO MESSAGE    Error("Invalid TrueType font data in %s", ffile->filename);
+*/
 
 	ProcessLocaTable(ffile, loca_table_offset);  /* Now we can do loca_table */
 
 	ProcessHheaTable(ffile, hhea_table_offset);  /* Need numberOfHMetrics */
+    /* TODO
 	if (ffile->numberOfHMetrics <= 0)
 ;// TODO MESSAGE    Error("Invalid TrueType font data in %s", ffile->filename);
+*/
 
 	ProcessHmtxTable(ffile, hmtx_table_offset);  /* Now we can read HMetrics */
 
@@ -1394,9 +1400,10 @@ GlyphPtr ProcessCharacter(FontFileInfo *ffile, unsigned int search_char, unsigne
 	}
 
 	*glyph_index = ProcessCharMap(ffile, search_char);
-
+/* TODO
 	if (*glyph_index == 0)
 ;// TODO MESSAGE    Warning(0, "Character %d (0x%X) not found in %s", (BYTE)search_char,
+*/
 //            search_char, ffile->filename);
 
 	/* See if we have already processed this glyph (using the glyph index) */

@@ -1081,8 +1081,10 @@ bool ot_save_tree(OT_NODE *root, OStream *fd)
 
     if(fd != NULL)
         retval = ot_traverse(root, ot_write_block, reinterpret_cast<void *>(fd));
+    /* TODO
     else
 ;// TODO MESSAGE    Warning(0, "Bad radiosity cache file handle");
+*/
 
     return retval;
 }
@@ -1380,6 +1382,7 @@ bool ot_read_file(OT_NODE **root, IStream *fd, const OT_READ_PARAM* param, OT_RE
 ;// TODO MESSAGE      PossibleError("Cannot process radiosity cache file at line %d.", (int)line_num);
             retval = false;
         }
+        /* TODO
         else
         {
             if ( goodreads > 0 )
@@ -1388,6 +1391,8 @@ bool ot_read_file(OT_NODE **root, IStream *fd, const OT_READ_PARAM* param, OT_RE
 ;// TODO MESSAGE         PossibleError("Unable to read any values from the radiosity cache file.");
             retval = true;
         }
+        */
+
     }
     else
     {

@@ -1218,13 +1218,16 @@ void FunctionVM::DeleteContext(FPUContext *context)
 *   Shows a floating-point exception error message.
 *
 * CHANGES
-*
+*../source/frontend/simplefrontend.h:273:34: warning: suggest braces around empty body in an 'if' statement [-Wempty-body]
+      if (imageProcessing != NULL);
 *   -
-*
+*../source/frontend/simplefrontend.h:273:34: warning: suggest braces around empty body in an 'if' statement [-Wempty-body]
+      if (imageProcessing != NULL);
 ******************************************************************************/
 
 void POVFPU_Exception(FPUContext *context, FUNCTION fn, const char *msg)
 {
+    /* TODO
     vector<FunctionEntry>& functions(context->functionvm->functions);
 
     if(functions[fn].fn.name != NULL)
@@ -1250,6 +1253,7 @@ void POVFPU_Exception(FPUContext *context, FUNCTION fn, const char *msg)
 //                  "Your function either attempted a division by zero, used a function outside its "
 //                  "domain or called an internal function with invalid parameters.");
     }
+    */
 }
 
 

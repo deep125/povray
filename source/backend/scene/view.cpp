@@ -899,8 +899,8 @@ void View::StartRender(POVMS_Object& renderOptions)
             viewData.camera.Direction = viewData.camera.Look_At - viewData.camera.Location;
 
             // Check for zero length direction vector.
-            if(viewData.camera.Direction.lengthSqr() < EPSILON)
-                ; // Error("Camera location and look_at point must be different.");
+            //if(viewData.camera.Direction.lengthSqr() < EPSILON)
+              //  ; // Error("Camera location and look_at point must be different.");
 
             viewData.camera.Direction.normalize();
 

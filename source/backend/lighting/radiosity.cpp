@@ -998,10 +998,12 @@ bool RadiosityCache::Load(const Path& inputFile)
         }
         else
         {
+            /* TODO
             if ( goodreads > 0 )
                 ;// TODO MESSAGE         Debug_Info("Reloaded %d values from radiosity cache file.\n", goodreads);
             else
                 ;// TODO MESSAGE         PossibleError("Unable to read any values from the radiosity cache file.");
+                */
             ok = true;
         }
 
