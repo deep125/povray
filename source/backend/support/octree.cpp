@@ -1327,7 +1327,7 @@ bool ot_read_file(OT_NODE **root, IStream *fd, const OT_READ_PARAM* param, OT_RE
                                    &tempCol.red(), &tempCol.green(), &tempCol.blue(),
                                    &bl.Harmonic_Mean_Distance,
                                    &bl.Nearest_Distance, to_nearest_string );
-                    bl.Illuminance = ToMathColour(tempCol);
+                    bl.Illuminance = MathColour(tempCol);
 #else
                     #error TODO!
 #endif

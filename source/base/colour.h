@@ -114,8 +114,6 @@ class GenericRGBColour
         friend class GenericRGBTColour<T>;
         friend class GenericRGBFTColour<T>;
 
-        friend GenericRGBColour ToRGBColour(const GenericColour<T>& col);
-
         /// Default constructor.
         inline GenericRGBColour()
         {
@@ -561,6 +559,7 @@ class GenericRGBColour
         T mColour[3];
 
 #if (NUM_COLOUR_CHANNELS == 3)
+        public:
         inline explicit GenericRGBColour(const GenericColour<T>& col)
         {
             mColour[RED]   = col.mColour[0];
@@ -661,8 +660,6 @@ class GenericRGBFTColour
 
         template<typename T2>
         friend class GenericRGBFTColour;
-
-        friend GenericRGBFTColour ToRGBFTColour(const GenericTransColour<T>& col);
 
         typedef DBL EXPRESS[5];
 
@@ -925,7 +922,7 @@ class GenericRGBFTColour
         GenericRGBColour<T> mColour;
         T                   mFilter;
         T                   mTransm;
-
+    public:
         inline explicit GenericRGBFTColour(const GenericTransColour<T>& col) :
             mColour(col.colour())
         {
@@ -1219,7 +1216,6 @@ class GenericColour
         friend class GenericRGBTColour<T>;
         friend class GenericTransColour<T>;
 
-        friend GenericColour ToMathColour(const GenericRGBColour<T>& col);
 
         /// Default constructor.
         inline GenericColour()
@@ -1705,6 +1701,7 @@ class GenericColour
         T mColour[channels];
 
 #if (NUM_COLOUR_CHANNELS == 3)
+public:
         inline explicit GenericColour(const GenericRGBColour<T>& col)
         {
             mColour[0] = col.red();
@@ -1776,8 +1773,6 @@ class GenericTransColour
         friend class GenericTransColour;
 
         friend class GenericRGBFTColour<T>;
-
-        friend GenericTransColour ToTransColour(const GenericRGBFTColour<T>& col);
 
         typedef DBL EXPRESS[5];
 
@@ -2020,6 +2015,7 @@ class GenericTransColour
         T                   mFilter;
         T                   mTransm;
 
+    public:
         inline explicit GenericTransColour(const GenericRGBFTColour<T>& col) :
             mColour(col.rgb())
         {

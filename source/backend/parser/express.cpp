@@ -2668,7 +2668,7 @@ void Parser::Parse_Colour (TransColour& colour, bool expectFT)
 {
     RGBFTColour tempColour;
     Parse_Colour (tempColour, expectFT);
-    colour = ToTransColour(tempColour);
+    colour = TransColour(tempColour);
 }
 
 void Parser::Parse_Colour (RGBColour& colour)
@@ -2690,7 +2690,7 @@ void Parser::Parse_Wavelengths (MathColour& colour)
 #if (NUM_COLOUR_CHANNELS == 3)
     RGBFTColour tempColour;
     Parse_Colour (tempColour, false);
-    colour = ToMathColour(tempColour.rgb());
+    colour = MathColour(tempColour.rgb());
 #else
     #error TODO!
 #endif
@@ -3376,7 +3376,7 @@ ColourBlendMapPtr Parser::Parse_Colour_Map<ColourBlendMap> ()
                                 {
                                     RGBFTColour rgbft;
                                     rgbft.Set(Express, Terms);
-                                    Temp_Ent.Vals = ToTransColour (rgbft);
+                                    Temp_Ent.Vals = TransColour (rgbft);
                                     tempList.push_back(Temp_Ent);
                                 }
                                 else

@@ -954,7 +954,7 @@ bool RadiosityCache::Load(const Path& inputFile)
                         &harmonic_mean,
                         &nearest, to_nearest_string
                     );
-                    illuminance = ToMathColour(tempCol);
+                    illuminance = MathColour(tempCol);
 #else
                     #error TODO!
 #endif

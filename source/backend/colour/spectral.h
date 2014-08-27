@@ -115,29 +115,7 @@ class SpectralBand
 namespace pov_base
 {
 
-#if (NUM_COLOUR_CHANNELS == 3)
-
-inline RGBColour ToRGBColour(const MathColour& col)
-{
-    return RGBColour(col);
-}
-
-inline MathColour ToMathColour(const RGBColour& col)
-{
-    return MathColour(col);
-}
-
-inline TransColour ToTransColour(const RGBFTColour& col)
-{
-    return TransColour(col);
-}
-
-inline RGBFTColour ToRGBFTColour(const TransColour& col)
-{
-    return RGBFTColour(col);
-}
-
-#else
+#if (NUM_COLOUR_CHANNELS != 3)
 
 RGBColour ToRGB(const MathColour& col);
 RGBColour FromRGB(const MathColour& col);

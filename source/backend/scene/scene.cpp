@@ -70,7 +70,7 @@ SceneData::SceneData() :
 {
     atmosphereIOR = 1.0;
     atmosphereDispersion = 0.0;
-    backgroundColour = ToTransColour(RGBFTColour(0.0, 0.0, 0.0, 0.0, 1.0));
+    backgroundColour = TransColour(RGBFTColour(0.0, 0.0, 0.0, 0.0, 1.0));
     ambientLight = MathColour(1.0);
 
     iridWavelengths = MathColour::DefaultWavelengths();

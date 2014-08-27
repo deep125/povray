@@ -1213,7 +1213,6 @@ void f_pigment(FPUContext *ctx, DBL *ptr, unsigned int fn, unsigned int sp) // 0
 {
     Vector3d Vec = Vector3d(PARAM_N_X(5), PARAM_N_Y(5), PARAM_N_Z(5));
     TransColour Col;
-    RGBFTColour rgbftCol;
     FunctionCode *f = ctx->functionvm->GetFunction(fn);
 
     if(f->private_data == NULL)
@@ -1227,7 +1226,7 @@ void f_pigment(FPUContext *ctx, DBL *ptr, unsigned int fn, unsigned int sp) // 0
     }
 
     Compute_Pigment(Col, reinterpret_cast<const PIGMENT *>(f->private_data), Vec, NULL, NULL, ctx->threaddata);
-    rgbftCol = ToRGBFTColour(Col);
+    RGBFTColour rgbftCol(Col);
 
     ctx->SetLocal(sp + pRED,    rgbftCol.red());
     ctx->SetLocal(sp + pGREEN,  rgbftCol.green());

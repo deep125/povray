@@ -1460,7 +1460,6 @@ void Trace::ComputePhotonDiffuseLight(const FINISH *Finish, const Vector3d& IPoi
 {
     double Cos_Shadow_Angle;
     Vector3d lightDirection;
-    MathColour Light_Colour;
     MathColour tmpCol, tmpCol2;
     double r;
     int n;
@@ -1496,7 +1495,7 @@ void Trace::ComputePhotonDiffuseLight(const FINISH *Finish, const Vector3d& IPoi
         bool backside = false;
 
         // convert small color to normal color
-        Light_Colour = ToMathColour(RGBColour(gatherer.gatheredPhotons.photonGatherList[j]->colour));
+        MathColour Light_Colour(RGBColour(gatherer.gatheredPhotons.photonGatherList[j]->colour));
 
         // convert theta/phi to vector direction
         // Use a pre-computed array of sin/cos to avoid many calls to the
@@ -2738,8 +2737,7 @@ void Trace::ComputeSky(const Ray& ray, MathColour& colour, ColourChannel& transm
             att = trans * col_Temp.Opacity();
 
             col += col_Temp.colour() * att;
-
-            RGBFTColour col_Temp2 = ToRGBFTColour(col_Temp);
+            RGBFTColour col_Temp2(col_Temp);
             filterc_colour *= col_Temp.colour();
             filterc_filter *= col_Temp2.filter();
             filterc_transm *= col_Temp2.transm();
